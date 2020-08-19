@@ -1,0 +1,18 @@
+#################
+Ip addresses
+#################
+
+Please install a python3 virtual environment for this program!
+
+1. mkdir venv ; cd venv
+2. python3.6 -m venv .
+3. source ./bin/activate
+4. Install ipconflict:
+    pip3 install ipconflict
+5. Run the program:
+    python get_ip_addresses.py
+
+Note: Additional command line arguments:
+
+    --with-prefix  : prints all the addresses with the appropriate subnets
+    --overlapping  : prints the overlapping subnets from the IP addresses
