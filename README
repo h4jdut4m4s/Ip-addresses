@@ -11,6 +11,8 @@ Please install a python3 virtual environment for this program!
     pip3 install ipconflict
 5. Run the program:
     python get_ip_addresses.py
+6. Run tests:
+    python test_get_ip_addresses.py
 
 Note: Additional command line arguments:
 
