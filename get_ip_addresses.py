@@ -15,12 +15,15 @@ class IpAddresses:
 
     def get_ip_addresses(self):
         args = self.parse_arguments()
-        if args.overlapping:
-            return self.ip_addresses_overlapping()
-        elif args.with_prefix:
-            return self.ip_addresses_with_prefix()
-        else:
-            return self.ip_addresses_all()
+        try:
+            if args.overlapping:
+                return self.ip_addresses_overlapping()
+            elif args.with_prefix:
+                return self.ip_addresses_with_prefix()
+            else:
+                return self.ip_addresses_all()
+        except subprocess.CalledProcessError as ex:
+            raise RuntimeError(f"Failed to execute bash command: {ex}")
 
     def ip_addresses_all(self):
         '''
