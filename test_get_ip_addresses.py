@@ -1,8 +1,7 @@
 import subprocess
-import unittest
 import unittest.mock
-from argparse import Namespace
 from unittest.mock import patch
+from argparse import Namespace
 from get_ip_addresses import IpAddresses
 
 
@@ -12,7 +11,8 @@ class TestStringMethods(unittest.TestCase):
         self.ip_addresses_all = IpAddresses().ip_addresses_all()
         self.ip_addresses_with_prefix = IpAddresses().ip_addresses_with_prefix()
         self.ip_addresses_overlapping = IpAddresses().ip_addresses_overlapping()
-        self.get_ip_addresses = IpAddresses().get_ip_addresses()
+        # self.parser = IpAddresses().parse_arguments()
+        self.maxDiff = None
 
     @patch('os.system')
     @patch('get_ip_addresses.IpAddresses.parse_arguments')
@@ -48,11 +48,29 @@ class TestStringMethods(unittest.TestCase):
 
     @patch('get_ip_addresses.IpAddresses.ip_addresses_all')
     @patch('get_ip_addresses.IpAddresses.parse_arguments')
-    def test_no_parameters(self,
-                              mock_parse,
-                              mock_all):
+    def test_no_parameters_called(self,
+                                  mock_parse,
+                                  mock_all):
         mock_parse.return_value = Namespace(overlapping=False, with_prefix=False)
         mock_all.return_value = "0.0.0.0"
+        self.assertEqual("0.0.0.0", IpAddresses().get_ip_addresses())
+
+    @patch('get_ip_addresses.IpAddresses.ip_addresses_with_prefix')
+    @patch('get_ip_addresses.IpAddresses.parse_arguments')
+    def test_with_prefix_called(self,
+                                mock_parse,
+                                mock_prefix):
+        mock_parse.return_value = Namespace(overlapping=False, with_prefix=True)
+        mock_prefix.return_value = "0.0.0.0"
+        self.assertEqual("0.0.0.0", IpAddresses().get_ip_addresses())
+
+    @patch('get_ip_addresses.IpAddresses.ip_addresses_overlapping')
+    @patch('get_ip_addresses.IpAddresses.parse_arguments')
+    def test_overlapping_called(self,
+                                mock_parse,
+                                mock_prefix):
+        mock_parse.return_value = Namespace(overlapping=True, with_prefix=False)
+        mock_prefix.return_value = "0.0.0.0"
         self.assertEqual("0.0.0.0", IpAddresses().get_ip_addresses())
 
     @patch('get_ip_addresses.IpAddresses.ip_addresses_all')
@@ -61,14 +79,19 @@ class TestStringMethods(unittest.TestCase):
                                  mock_parse,
                                  mock_all):
         mock_parse.return_value = Namespace(overlapping=False, with_prefix=False)
-        mock_all.return_value = subprocess.CalledProcessError
-        self.assertRaises(RuntimeError, IpAddresses().get_ip_addresses())
+        mock_all.side_effect = subprocess.CalledProcessError(returncode=2, cmd=["bad"])
+        self.assertRaises(RuntimeError, IpAddresses().get_ip_addresses)
+
+    def test_parser(self):
+        parser = IpAddresses.parse_arguments(['--with-prefix', '--overlapping'])
+        self.assertTrue(parser)
 
     def tearDown(self):
         self.ip_addresses_all = None
         self.ip_addresses_with_prefix = None
         self.ip_addresses_overlapping = None
         self.get_ip_addresses = None
+
 
 if __name__ == '__main__':
     unittest.main()
