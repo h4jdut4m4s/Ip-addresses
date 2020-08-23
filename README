@@ -12,9 +12,11 @@ Please install a python3 virtual environment for this program!
 5. Run the program:
     python get_ip_addresses.py
 6. Run tests:
-    python test_get_ip_addresses.py
+    python -m unittest test_get_ip_addresses.py
 
 Note: Additional command line arguments:
 
     --with-prefix  : prints all the addresses with the appropriate subnets
     --overlapping  : prints the overlapping subnets from the IP addresses
+
+This program was tested on a Ubuntu 18.04.4 LTS machine, with a 4.15.0-112-generic kernel.
