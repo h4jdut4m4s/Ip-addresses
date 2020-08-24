@@ -1,0 +1,190 @@
+1987  ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
+ 1988  ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*'
+ 1989  ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*'
+ 1990  ls
+ 1991  git init
+ 1992  ls
+ 1993  python solution.py 
+ 1994  python get_ip_addresses.py 
+ 1995  python --verbose get_ip_addresses.py 
+ 1996  python get_ip_addresses.py 
+ 1997  python get_ip_addresses.py --with-subnet
+ 1998  python get_ip_addresses.py --with-prefix
+ 1999  python get_ip_addresses.py
+ 2000  python get_ip_addresses.py --with-prefix
+ 2001  python get_ip_addresses.py
+ 2002  git status
+ 2003  git add -i
+ 2004  git status
+ 2005  git commit -m "Initial commit"
+ 2006  git status
+ 2007  git log
+ 2008  python get_ip_addresses.py --with-prefix
+ 2009  python get_ip_addresses.py
+ 2010  python get_ip_addresses.py --with-prefix
+ 2011  ls
+ 2012  python3 -m venv .
+ 2013  ls
+ 2014  mkdir .venv ; cp -r bin/ include/ lib/ lib64/python3.6/ pyvenv.cfg share/ .venv
+ 2015  ls
+ 2016  cd .venv/
+ 2017  ls
+ 2018  cd ..
+ 2019  mkdir .venv ; mv -r bin/ include/ lib/ lib64/python3.6/ pyvenv.cfg share/ .venv
+ 2020  mkdir .venv ; mv bin/ include/ lib/ lib64/python3.6/ pyvenv.cfg share/ .venv
+ 2021  ls
+ 2022  cd .venv/
+ 2023  ls
+ 2024  cd ..
+ 2025  ls
+ 2026  rm -rf bin/ lib/ lib64/ share/
+ 2027  ls
+ 2028  rm lib64 
+ 2029  ls
+ 2030  cd .venv/
+ 2031  ls
+ 2032  git status
+ 2033  mv .venv venv
+ 2034  cd ..
+ 2035  ls
+ 2036  mv .venv venv
+ 2037  ls
+ 2038  source venv/bin/activate
+ 2039  ls
+ 2040  pip install ipconflict
+ 2041  sudo pip install ipconflict
+ 2042  sudo pip3 install ipconflict
+ 2043  ipconflict
+ 2044  man ipconflict
+ 2045  ipconflict -f
+ 2046  man 7 undocumented
+ 2047  ipconflict -h
+ 2048  ipconflict -o
+ 2049  ipconflict -o 0.0.0.0 0.0.0.0
+ 2050* 
+ 2051  python get_ip_addresses.py --with-prefix
+ 2052  python get_ip_addresses.py --overlapping
+ 2053  ipconflict -o 192.168.0.6/24 100.109.0.2/24
+ 2054  python get_ip_addresses.py --overlapping
+ 2055  python --version
+ 2056  deactivate
+ 2057  ls
+ 2058  cd venv/
+ 2059  ls
+ 2060  rm -rf ./*
+ 2061  ls
+ 2062  python3.6 -m venv .
+ 2063  ls
+ 2064  source bin/activate
+ 2065  python --version
+ 2066  sudo pip3 install ipconflict
+ 2067  cd ..
+ 2068  ls
+ 2069  python get_ip_addresses.py --overlapping
+ 2070  git status
+ 2071  git add get_ip_addresses.py venv/
+ 2072  git status
+ 2073  git restore --stage venv/
+ 2074  git status
+ 2075  touch README
+ 2076  git status
+ 2077  git add README 
+ 2078  ls
+ 2079  git status
+ 2080  git commit --amend
+ 2081  git status
+ 2082  python get_ip_addresses.py --overlapping
+ 2083  python get_ip_addresses.py --with-prefix
+ 2084  python get_ip_addresses.py
+ 2085  git log
+ 2086  python test_get_ip_addresses.py 
+ 2087  git log
+ 2088  python test_get_ip_addresses.py 
+ 2089  coverage
+ 2090  coverage.py run -m unittest discover
+ 2091  coverage report
+ 2092  man coverage
+ 2093  coverage run -a --source test_get_ip_addresses.py 
+ 2094  python test_get_ip_addresses.py 
+ 2095  python get_ip_addresses.py 
+ 2096  python test_get_ip_addresses.py 
+ 2097  git status
+ 2098  git add README test_get_ip_addresses.py
+ 2099  git commit -m "Added initial tests"
+ 2100  git log
+ 2101  python get_ip_addresses.py 
+ 2102  python get_ip_addresses.py -with-prefix
+ 2103  python get_ip_addresses.py --with-prefix
+ 2104  python get_ip_addresses.py --overlapping
+ 2105  git log
+ 2106  python test_get_ip_addresses.py 
+ 2107  ls
+ 2108  python test_get_ip_addresses.py 
+ 2109  python get_ip_addresses.py 
+ 2110  python test_get_ip_addresses.py 
+ 2111  git log
+ 2112  git show
+ 2113  git commit --amend
+ 2114  git log
+ 2115  git remote add origin git@github.com:h4jdut4m4s/Ip-addresses.git
+ 2116  git push -u origin master
+ 2117  git status
+ 2118  git add -i
+ 2119  git commit
+ 2120  git log
+ 2121  python test_get_ip_addresses.py 
+ 2122  git status
+ 2123  git add -i
+ 2124  git commit
+ 2125  git log
+ 2126  git status
+ 2127  git commit
+ 2128  git log
+ 2129  git commit --amend
+ 2130  git status
+ 2131  git push -u origin master
+ 2132  pip install netifaces
+ 2133  netifaces
+ 2134  python3
+ 2135  python test_get_ip_addresses.py 
+ 2136  python get_ip_addresses.py 
+ 2137  python get_ip_addresses.py --with-prefix
+ 2138  python get_ip_addresses.py --overlapping
+ 2139  python get_ip_addresses.py --with-prefix
+ 2140  python get_ip_addresses.py
+ 2141  python get_ip_addresses.py --overlapping
+ 2142  python get_ip_addresses.py
+ 2143  python test_get_ip_addresses.py
+ 2144  git status
+ 2145  git add README get_ip_addresses.py test_get_ip_addresses.py 
+ 2146  git commit
+ 2147  git log
+ 2148  python test_get_ip_addresses.py
+ 2149  python -m unittest test_get_ip_addresses.py
+ 2150  python get_ip_addresses.py
+ 2151  python get_ip_addresses.py --overlapping
+ 2152  python get_ip_addresses.py --with-prefix
+ 2153  python get_ip_addresses.py --overlapping
+ 2154  python get_ip_addresses.py
+ 2155  python3
+ 2156  python -m unittest test_get_ip_addresses.py
+ 2157  python get_ip_addresses.py
+ 2158  python -m unittest test_get_ip_addresses.py
+ 2159  ls
+ 2160  git status
+ 2161  git diff
+ 2162  git status
+ 2163  git add README get_ip_addresses.py test_get_ip_addresses.py 
+ 2164  git status
+ 2165  git log
+ 2166  git commit --amend
+ 2167  git log
+ 2168  git status
+ 2169  git push -u origin master
+ 2170  python get_ip_addresses.py
+ 2171  python get_ip_addresses.py --we
+ 2172  python get_ip_addresses.py -h
+ 2173  git status
+ 2174  ls
+ 2175  history
+
