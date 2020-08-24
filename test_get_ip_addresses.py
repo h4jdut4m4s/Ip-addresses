@@ -32,15 +32,18 @@ class TestStringMethods(unittest.TestCase):
         IpAddresses().ip_addresses_with_prefix()
         bash_command = "ip -o -f inet addr show | awk '/scope global/ {print $4}'"
         mock_bash_command.assert_called_once_with(bash_command)
-
+        
     @unittest.mock.patch('os.system')
     @unittest.mock.patch('get_ip_addresses.IpAddresses.parse_arguments')
     def test_ip_addresses_overlapping(self,
                                       mock_parse,
                                       mock_bash_command):
         mock_parse.return_value = Namespace(overlapping=True, with_prefix=False)
+        ips_with_prefix = subprocess.check_output("ip -o -f inet addr show | awk '/scope global/ {print $4}'",
+                                                  shell=True)
+        command_arguments = ' '.join(ips_with_prefix.decode("utf-8").split('\n'))
         IpAddresses().ip_addresses_overlapping()
-        bash_command = "ipconflict -o 192.168.0.6/24 100.109.0.2/24 "
+        bash_command = f"ipconflict -o {command_arguments}"
         mock_bash_command.assert_called_once_with(bash_command)
 
     @unittest.mock.patch('get_ip_addresses.IpAddresses.ip_addresses_all')
